@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -25,7 +25,66 @@ interface Props {
 
 export const DetailScreen: React.FC<Props> = ({ property, onBack }) => {
   const [saved, setSaved] = useState(property.saved ?? false);
+  const [loading, setLoading] = useState(true);
   const bgColor = GRADIENT_COLORS[property.gradient];
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1500);
+
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+  return (
+    <SafeAreaView style={styles.root}>
+      <View
+        style={{
+          height: 260,
+          backgroundColor: '#2A2A2A',
+        }}
+      />
+
+      <View style={{ padding: 18 }}>
+        <View
+          style={{
+            height: 30,
+            backgroundColor: '#2A2A2A',
+            borderRadius: 8,
+            marginBottom: 12,
+          }}
+        />
+
+        <View
+          style={{
+            height: 18,
+            backgroundColor: '#2A2A2A',
+            borderRadius: 8,
+            marginBottom: 20,
+          }}
+        />
+
+        <View
+          style={{
+            height: 120,
+            backgroundColor: '#2A2A2A',
+            borderRadius: 12,
+            marginBottom: 20,
+          }}
+        />
+
+        <View
+          style={{
+            height: 80,
+            backgroundColor: '#2A2A2A',
+            borderRadius: 12,
+          }}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
 
   return (
     <SafeAreaView style={styles.root}>
