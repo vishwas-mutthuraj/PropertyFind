@@ -5,10 +5,10 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
   TextInput,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Spacing, Radius } from '../theme';
 import { PropertyCard, Property } from '../components/PropertyCard';
 import { SkeletonCard } from '../components/SkeletonCard';

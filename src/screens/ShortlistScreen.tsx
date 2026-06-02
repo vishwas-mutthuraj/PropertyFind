@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  SafeAreaView,
   ScrollView,
   Text,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors } from '../theme';
 import { PropertyCard, Property } from '../components/PropertyCard';
