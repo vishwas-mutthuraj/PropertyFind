@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -85,12 +85,20 @@ export const ListingScreen: React.FC<Props> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<TabName>('Discover');
   const [activeFilter, setActiveFilter] = useState('All');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [properties, setProperties] = useState(MOCK_PROPERTIES);
   const [sheetProperty, setSheetProperty] = useState<Property | null>(null);
   const [showSheet, setShowSheet] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [searchText, setSearchText] = useState('Whitefield, Bangalore');
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 2000);
+
+  return () => clearTimeout(timer);
+}, []);
 
   const toggleSave = (prop: Property) => {
   onShortlist(prop);
@@ -177,10 +185,12 @@ export const ListingScreen: React.FC<Props> = ({
         showsVerticalScrollIndicator={false}
       >
         {loading ? (
-          <>
-            <SkeletonCard />
-            <SkeletonCard />
-          </>
+        <>
+           <SkeletonCard />
+           <SkeletonCard />
+           <SkeletonCard />
+           <SkeletonCard />
+        </>
         ) : (
       
           properties.map((property) => {
