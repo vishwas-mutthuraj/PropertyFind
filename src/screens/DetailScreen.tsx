@@ -100,14 +100,22 @@ if (loading) {
         </TouchableOpacity>
 
         {/* Fav */}
-        <TouchableOpacity
-          style={[styles.circleBtn, styles.circleRight]}
-          onPress={() => setSaved(!saved)}
-        >
-          <Text style={{ fontSize: 14, color: saved ? Colors.red : '#fff' }}>
-            {saved ? '♥' : '♡'}
-          </Text>
-        </TouchableOpacity>
+       <TouchableOpacity
+  style={[styles.circleBtn, styles.circleRight]}
+  onPress={() => setSaved(!saved)}
+>
+  <Text
+    style={{
+      fontSize: 20,
+      color: saved ? Colors.red : '#fff',
+      textAlign: 'center',
+      lineHeight: 20,
+      includeFontPadding: false,
+    }}
+  >
+    {saved ? '♥' : '♡'}
+  </Text>
+</TouchableOpacity>
 
         {/* Match badge */}
         <View style={[styles.matchBadge, { backgroundColor: Colors.greenBg }]}>
@@ -239,10 +247,10 @@ const styles = StyleSheet.create({
   circleBtn: {
     position: 'absolute',
     top: 10,
-    left: 16,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    left: 10,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
     backgroundColor: 'rgba(0,0,0,0.55)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -251,8 +259,8 @@ const styles = StyleSheet.create({
   },
 circleRight: {
   position: 'absolute',
-  top: 50,
-  right: 16,
+  top: 10,
+  right: 10,
   left: undefined,
 },
   circleBtnText: {
