@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ListingScreen } from './src/screens/ListingScreen';
 import { DetailScreen } from './src/screens/DetailScreen';
 import { CompareScreen } from './src/screens/CompareScreen';
@@ -38,6 +39,7 @@ export default function App() {
   };
 
   return (
+    <SafeAreaProvider>
     <View style={styles.root}>
       {screen === 'listing' && (
      <ListingScreen
@@ -78,6 +80,7 @@ export default function App() {
 />
 )}
     </View>
+    </SafeAreaProvider>
   );
 }
 
