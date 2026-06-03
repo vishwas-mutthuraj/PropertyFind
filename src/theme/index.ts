@@ -17,7 +17,8 @@ export const Colors = {
   amber: '#FBBF24',
   amberBg: 'rgba(251,191,36,0.1)',
   red: '#F87171',
-  overlay: 'rgba(0,0,0,0.72)',
+ 
+  overlay: 'rgba(0,0,0,0.9)',
   sheetBg: '#1C1C25',
   gBlue: ['#1E3A5F', '#4A7FAD'] as [string, string],
   gGreen: ['#1A3D2B', '#4A9060'] as [string, string],

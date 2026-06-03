@@ -51,7 +51,7 @@ export const CreateCollectionModal: React.FC<Props> = ({ visible, onClose, onSav
   };
 
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <TouchableWithoutFeedback onPress={onClose}>
         <Animated.View style={[styles.overlay, { opacity: fadeAnim }]} />
       </TouchableWithoutFeedback>
@@ -142,7 +142,7 @@ export const CreateCollectionModal: React.FC<Props> = ({ visible, onClose, onSav
 
 const styles = StyleSheet.create({
   overlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: Colors.overlay,
   },
   centeredView: {
