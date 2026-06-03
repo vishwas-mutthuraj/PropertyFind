@@ -60,8 +60,16 @@ export const PropertyCard: React.FC<Props> = ({
             <Text style={styles.badgeText}>⌑ FEATURED</Text>
           </View>
         )}
-        <TouchableOpacity style={styles.fav}>
-          <Text style={{ fontSize: 13, color: property.saved ? Colors.red : '#fff' }}>
+        <TouchableOpacity
+          style={styles.fav}
+          onPress={() => onShortlist?.(property)}
+        >
+          <Text
+            style={{
+              fontSize: 13,
+              color: property.saved ? Colors.red : '#fff',
+            }}
+          >
             {property.saved ? '♥' : '♡'}
           </Text>
         </TouchableOpacity>

@@ -21,9 +21,10 @@ const GRADIENT_COLORS: Record<string, string> = {
 interface Props {
   property: Property;
   onBack: () => void;
+  onShortlist: (property: Property) => void;
 }
 
-export const DetailScreen: React.FC<Props> = ({ property, onBack }) => {
+export const DetailScreen: React.FC<Props> = ({ property, onBack, onShortlist }) => {
   const [saved, setSaved] = useState(property.saved ?? false);
   const [loading, setLoading] = useState(true);
   const bgColor = GRADIENT_COLORS[property.gradient];
@@ -102,7 +103,10 @@ if (loading) {
         {/* Fav */}
        <TouchableOpacity
   style={[styles.circleBtn, styles.circleRight]}
-  onPress={() => setSaved(!saved)}
+  onPress={() => {
+  setSaved(!saved);
+  onShortlist(property);
+}}
 >
   <Text
     style={{
@@ -182,7 +186,10 @@ if (loading) {
       <View style={styles.cta}>
         <TouchableOpacity
           style={[styles.ctaBtn, styles.ctaBtnGhost]}
-          onPress={() => setSaved(!saved)}
+          onPress={() => {
+            setSaved(!saved);
+            onShortlist(property);
+          }}
         >
           <Text style={[styles.ctaBtnText, { color: Colors.text2 }]}>
             {saved ? '♥ Saved' : '♡ Save'}

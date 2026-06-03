@@ -53,6 +53,7 @@ export default function App() {
         <DetailScreen
           property={selectedProperty}
           onBack={handleBack}
+          onShortlist={handleShortlist}
         />
       )}
 
