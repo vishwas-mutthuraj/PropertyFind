@@ -96,7 +96,10 @@ if (loading) {
         <Text style={styles.heroGlyph}>⌂</Text>
 
         {/* Back */}
-        <TouchableOpacity style={styles.circleBtn} onPress={onBack}>
+        <TouchableOpacity
+  style={[styles.circleBtn, styles.circleLeft]}
+  onPress={onBack}
+>
           <Text style={styles.circleBtnText}>←</Text>
         </TouchableOpacity>
 
@@ -251,24 +254,25 @@ const styles = StyleSheet.create({
     opacity: 0.35,
     color: '#fff',
   },
-  circleBtn: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'rgba(0,0,0,0.55)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 999,
-    elevation: 10,
-  },
-circleRight: {
+ circleBtn: {
   position: 'absolute',
   top: 10,
+  width: 30,
+  height: 30,
+  borderRadius: 15,
+  backgroundColor: 'rgba(0,0,0,0.55)',
+  alignItems: 'center',
+  justifyContent: 'center',
+  zIndex: 999,
+  elevation: 10,
+},
+
+circleLeft: {
+  left: 10,
+},
+
+circleRight: {
   right: 10,
-  left: undefined,
 },
   circleBtnText: {
     fontSize: 16,
